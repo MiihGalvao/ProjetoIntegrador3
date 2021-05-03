@@ -11,15 +11,15 @@
     @csrf
 <div class="row">
     <span class = "form-label">Nome</span>
-    <input type="text" name="name" class="form-control" value= "{{ product->name }}">
+    <input type="text" name="name" class="form-control" value= "{{ $product->name }}">
 </div>
 <div class="row">
     <span class = "form-label">Descrição</span>
-    <textarea class="form-control" name="description"> {{ product->description }} </textarea>
+    <textarea class="form-control" name="description"> {{ $product->description }} </textarea>
 </div>
 <div class="row">
     <span class = "form-label">Preço</span>
-    <input type="number" min="0.00" max = "10000.00" name="price" step="0.01" class="form-control" value="{{product->price}}">
+    <input type="number" min="0.00" max = "10000.00" name="price" step="0.01" class="form-control" value="{{$product->price}}">
 </div>
 <div class="row mt-4">
     <button type="submit" class="btn btn-success btn-lg"> Salvar</button>
