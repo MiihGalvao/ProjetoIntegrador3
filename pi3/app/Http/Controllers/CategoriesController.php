@@ -34,5 +34,3 @@ public function edit(Category $category){
        return redirect(route('category.index'));
    }
 }
-
-}
