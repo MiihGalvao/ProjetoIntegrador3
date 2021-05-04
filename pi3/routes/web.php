@@ -37,3 +37,6 @@ Route::post('/category/store', [CategoriesController::class,'store'])->name('cat
 Route::get('/category/edit/{category}', [CategoriesController::class,'edit'])->name('category.edit');
 Route::post('/category/update/{category}',[CategoriesController::class,'update'])->name('category.update');
 Route::get('/category/destroy/{category}',[CategoriesController::class,'destroy'])->name('category.destroy');
+
+//Tags
+Route::resource('/tag', TagController::class);
