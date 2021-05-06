@@ -1,4 +1,6 @@
-<x-app-layout>
+<h1> Olá Mundo </h1>
+
+<!--<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -15,3 +17,4 @@
         </div>
     </div>
 </x-app-layout>
+--!
