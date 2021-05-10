@@ -17,7 +17,37 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< Updated upstream
 //Product
+=======
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+//Route::get('/semlogin', function () {
+  //  return view('deslogado');
+//})->middleware(['guest']);
+
+
+Route::resource('/product', ProductsController::class);
+Route::get('/trash/product', [ProductsController::class, 'trash'])->name('product.trash');
+Route::patch('/trash/product/{id}', [ProductsController::class, 'restore'])->name('product.restore');
+
+Route::resource('/category', CategoriesController::class);
+Route::resource('/tag', TagController::class);
+
+
+
+
+
+
+
+
+
+
+/*Product
+>>>>>>> Stashed changes
 //Route::resource('/product', ProductsController::class); tem a msm função
 //que o código abaixo..
 Route::get('/product', [ProductsController::class, 'index'])->name('product.index'); 
