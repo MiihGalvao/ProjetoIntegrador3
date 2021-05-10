@@ -9,4 +9,11 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
+<<<<<<< Updated upstream
+=======
+
+    public function products(){
+        return $this->hasMany(Product::class);
+        }
+>>>>>>> Stashed changes
 }
