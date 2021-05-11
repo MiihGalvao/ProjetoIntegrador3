@@ -17,9 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< Updated upstream
-//Product
-=======
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -47,7 +44,6 @@ Route::resource('/tag', TagController::class);
 
 
 /*Product
->>>>>>> Stashed changes
 //Route::resource('/product', ProductsController::class); tem a msm função
 //que o código abaixo..
 Route::get('/product', [ProductsController::class, 'index'])->name('product.index'); 
