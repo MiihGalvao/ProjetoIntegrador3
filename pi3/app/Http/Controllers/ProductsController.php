@@ -22,7 +22,7 @@ class ProductsController extends Controller
         }
 
         public function edit(Product $product){
-         return view('product.edit')->with(['product'=>$product, 'categories'=>Category::all());
+         return view('product.edit')->with(['product'=>$product, 'categories'=>Category::all()]);
         }
         public function update(Request $request, Product $product){
             $product->update($request->all());
@@ -33,5 +33,8 @@ class ProductsController extends Controller
             $product->delete();
             session()->flash('success','Produto foi apagado com sucesso');
             return redirect(route('product.index'));
+        }
+        public function trash(){
+            return view('product.trash')->with('products', Product::onlyTrashed()->get());
         }
         }
