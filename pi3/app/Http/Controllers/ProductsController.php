@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Category;
 
 class ProductsController extends Controller
 {
@@ -12,7 +11,7 @@ class ProductsController extends Controller
         return view('product.index')->with('products', Product::all());
     }
     public function create(){
-        return view('product.create')->with('categories', Category::all());
+        return view('product.create');
     }
     public function store(Request $request) {
         Product::create($request->all());
@@ -22,7 +21,7 @@ class ProductsController extends Controller
         }
 
         public function edit(Product $product){
-         return view('product.edit')->with(['product'=>$product, 'categories'=>Category::all()]);
+         return view('product.edit')->with('product',$product);
         }
         public function update(Request $request, Product $product){
             $product->update($request->all());
@@ -33,8 +32,5 @@ class ProductsController extends Controller
             $product->delete();
             session()->flash('success','Produto foi apagado com sucesso');
             return redirect(route('product.index'));
-        }
-        public function trash(){
-            return view('product.trash')->with('products', Product::onlyTrashed()->get());
         }
         }
