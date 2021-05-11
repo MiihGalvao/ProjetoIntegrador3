@@ -34,4 +34,7 @@ class ProductsController extends Controller
             session()->flash('success','Produto foi apagado com sucesso');
             return redirect(route('product.index'));
         }
+        public function trash(){
+            return view('product.trash')->with('products', Product::onlyTrashed()->get());
+        }
         }
