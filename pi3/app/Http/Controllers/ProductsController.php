@@ -15,7 +15,20 @@ class ProductsController extends Controller
         return view('product.create')->with('categories', Category::all());
     }
     public function store(Request $request) {
-        Product::create($request->all());
+        if($request->image){
+            $image = $request->file('image')->store('product');
+            $image = "storage/".$image;
+        }else{
+            image = "storage/product/image.jpg";
+        }
+
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' =>$request->price,
+            'category_id' => $request->category_id,
+            'image' => $image
+        ]);
         session()->flash('success', 'Produto foi cadastrado com sucesso');
         return redirect(route('product.index'));
   //insert into products ('name','description','price') values ($request->name, $request->description, $request->price);
