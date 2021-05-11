@@ -14,7 +14,7 @@ class AddSoftdeleteProduct extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->softDeletes();
+            $table->SoftDeletes();
         });
     }
 
