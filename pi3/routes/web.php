@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -33,8 +34,8 @@ Route::get('/dashboard', function () {
 
 
 Route::resource('/product', ProductsController::class);
-//Route::get('/trash/product', [ProductsController::class, 'trash'])->name('product.trash');
-//Route::patch('/trash/product/{id}', [ProductsController::class, 'restore'])->name('product.restore');
+Route::get('/trash/product', [ProductsController::class, 'trash'])->name('product.trash');
+Route::patch('/trash/product/{id}', [ProductsController::class, 'restore'])->name('product.restore');
 
 Route::resource('/category', CategoriesController::class);
 Route::resource('/tag', TagController::class);
