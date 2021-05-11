@@ -22,6 +22,7 @@ class ProductsController extends Controller
 
         public function edit(Product $product){
          return view('product.edit')->with('product',$product);
+         return view('product.edit')->with(['product'=>$product, 'categories'=>Category::all()]);
         }
         public function update(Request $request, Product $product){
             $product->update($request->all());
