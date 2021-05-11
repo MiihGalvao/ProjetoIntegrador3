@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use illuminate\Support\Facades\Storage;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -19,7 +20,7 @@ class ProductsController extends Controller
             $image = $request->file('image')->store('product');
             $image = "storage/".$image;
         }else{
-            image = "storage/product/image.jpg";
+            $image = "storage/product/image.jpg";
         }
 
         Product::create([
@@ -38,8 +39,24 @@ class ProductsController extends Controller
          return view('product.edit')->with(['product'=>$product, 'categories'=>Category::all()]);
         }
         public function update(Request $request, Product $product){
-            $product->update($request->all());
-            session()->flash('success','Produto foi alterado com sucesso');
+            if($request->image){
+                $image = $request->file('image')->store('product');
+                $image = "storage/".$image;
+                if($product->image != "storage/product/imagem.jpg"){
+                Storage::delete(str_replace('storage/','',($product->image));
+                }
+            }else{
+                $image = $product->image;
+            }
+
+            $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' =>$request->price,
+            'category_id' => $request->category_id,
+            'image' => $image
+            ]);
+                session()->flash('success','Produto foi alterado com sucesso');
             return redirect(route('product.index'));
         }
         public function destroy(Product $product){
