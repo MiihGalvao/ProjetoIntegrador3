@@ -42,7 +42,7 @@ class ProductsController extends Controller
                 $image = $request->file('image')->store('product');
                 $image = "storage/".$image;
                 if($product->image != "storage/product/imagem.jpg"){
-                Storage::delete(str_replace('storage/','',($product->image));
+                Storage::delete(str_replace('storage/','',($product->image)));
                 }
             }else{
                 $image = $product->image;
