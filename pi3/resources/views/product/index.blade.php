@@ -7,8 +7,6 @@
         function remover(route){
             if (confirm('Você deseja remover o produto ?'))
             window.location = route;
-
-
         }
     </script>
 </head>
