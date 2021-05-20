@@ -31,17 +31,17 @@ Route::get('/dashboard', function () {
   //  return view('deslogado');
 //})->middleware(['guest']);
 
-
+Route::group(['middleware' => 'isAdmin'], function (){
 Route::resource('/product', ProductsController::class);
 Route::get('/trash/product', [ProductsController::class, 'trash'])->name('product.trash');
 Route::patch('/trash/product/{id}', [ProductsController::class, 'restore'])->name('product.restore');
-Route::patch('/trash/product', [ProductsController::class, 'trash'])->name('product.trash');
+//Route::patch('/trash/product', [ProductsController::class, 'trash'])->name('product.trash');
 //Route::patch('/product/restore/{Product}', [ProductsController::class, 'restore'])->name('product.restore');
 
 
 Route::resource('/category', CategoriesController::class);
 Route::resource('/tag', TagController::class);
-
+});
 
 
 
