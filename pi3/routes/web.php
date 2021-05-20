@@ -31,11 +31,11 @@ Route::get('/dashboard', function () {
   //  return view('deslogado');
 //})->middleware(['guest']);
 
-Route::resource('/product', ProductsController::class, ['only' => ['show']]);
 
-Route::group (['middleware' => 'auth'], function(){
+
+//Route::group (['middleware' => 'auth'], function(){
   //carrinho
-});
+//});
 
 Route::group(['middleware' => 'isAdmin'], function (){
 Route::resource('/product', ProductsController::class, ['except' => ['show']]);
@@ -49,7 +49,7 @@ Route::resource('/category', CategoriesController::class);
 Route::resource('/tag', TagController::class);
 });
 
-
+Route::resource('/product',ProductsController::class, ['only' => ['show']]);
 
 
 
