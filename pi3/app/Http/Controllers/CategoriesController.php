@@ -26,7 +26,7 @@ public function destroy(Category $category){
     }
 
     $category->delete();
-    
+    session()->flash('success', 'Categoria foi apagada com sucesso');
     return redirect(route('category.index'));
 }
 public function edit(Category $category){
