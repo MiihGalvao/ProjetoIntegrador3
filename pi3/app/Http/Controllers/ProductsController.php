@@ -13,6 +13,14 @@ class ProductsController extends Controller
     public function index(){
         return view('product.index')->with('products', Product::all());
     }
+
+    public functon show(Product $product){
+        
+
+    }
+
+
+
     public function create(){
         return view('product.create')->with(['categories' => Category::all(), 'tags' => Tag::all()]);
     }
