@@ -44,7 +44,7 @@
             <td>{{ $prod->name }}</td>
             <td>{{ $prod->price }}</td>s
             <td>{{ $prod->description }}</td>
-            <td>{{ @if ($prod->category->count() > 0) $prod->category->name @endif }}</td>
+            <td>{{ $prod->category->name }}</td>
                 <td>
                 <a href="#" class="btn btn-sm btn-success">Visualizar</a>
                 <a href="{{ route ('product.edit',$prod->id) }}" class="btn btn-sm btn-warning">Editar</a>
