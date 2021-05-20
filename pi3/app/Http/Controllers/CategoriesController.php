@@ -20,8 +20,13 @@ public function store(Request $request) {
     return redirect(route('category.index'));
 }
 public function destroy(Category $category){
+    if ($category->products()->count() > 0) {
+    session()->flash('success','Você não pode deletar uma categoria que tenha produto');
+    return redirect(route('category.index'));
+    }
+
     $category->delete();
-    session()->flash('success','Categoria foi apagada com sucesso');
+    
     return redirect(route('category.index'));
 }
 public function edit(Category $category){
