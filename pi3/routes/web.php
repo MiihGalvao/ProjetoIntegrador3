@@ -33,9 +33,9 @@ Route::get('/dashboard', function () {
 
 Route::resource('/product', ProductsController::class, ['only' => ['show']]);
 
-Route::group['middleware' => 'auth'], function(){
+Route::group (['middleware' => 'auth'], function(){
   //carrinho
-}
+});
 
 Route::group(['middleware' => 'isAdmin'], function (){
 Route::resource('/product', ProductsController::class, ['except' => ['show']]);
