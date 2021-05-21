@@ -11,38 +11,74 @@
 </head>
 <body>
     <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-sm navbar-light bg-white shadow-sm">
+        <div class="container">
+            <h1><a class="navbar-brand" href="{{ url('/') }}">Loja do Senac</a></h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-                </li>
+              
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuCategoria" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categoria</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuCategoria">
+                    @foreach(\App\Models\Category::all() as $category)
+                    <li><a class="dropdown-item" href="#">{{$category->name}}</a></li>
+                    @endforeach
                 </ul>
-                </li>
+            </li>
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuTag" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Tags</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuTag">
+                @foreach(\App\Models\Tag::all() as $tag)
+                    <li><a class="dropdown-item" href="#">{{$tag->name}}</a></li>
+                    @endforeach
                 </ul>
-                </div>
+            </li>
+        </ul>
+     </div>
                 </div>
 </nav>
 
 </header>
+
+    <main>
+
+    @if(session()->has('success'))
+        <div class="alert alert-success" role="alert">
+        {{ session()->get('success')   }}
+        </div>
+        @endif
+
+        @if(session()->has('error'))
+        <div class="alert alert-success" role="alert">
+        {{ session()->get('error')   }}
+        </div>
+        @endif
+
+
+    </main>
+
+    <footer class="container bg-primary text-white p-5">
+        <div class="row">
+            <div class="col-6">
+                <h2>Localização:</h2>
+                <address>
+                    Rua Lorem ipsum dolor.<br>
+                    Lorem, ipsum. -Lorem,LR<br>
+                    CEP:00000-OOO<br>
+                    Telefone: (11) 99999-9999
+                </address>
+            </div>
+            <div class="col-6">
+            <h2>Horario de funcionamento</h2>
+            <ul class = "list-unstyled">
+                <li>Segunda - sexta: 9:00h as 18:00h</li>
+                <li>Sabado: 10:00h as 16:00h</li>
+            <ul>
+            </div>
+            </div>
+    </footer>
     </body>
         </html>
