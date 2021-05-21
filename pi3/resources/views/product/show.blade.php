@@ -56,8 +56,8 @@
         {{ session()->get('error')   }}
         </div>
         @endif
-
-
+        @yield('content')
+        
     </main>
 
     <footer class="container bg-primary text-white p-5">
