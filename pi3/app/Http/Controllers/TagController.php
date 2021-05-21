@@ -51,7 +51,7 @@ public function update(Request $request, Tag $tag)
 public function destroy(Tag $tag)
     {
     if($tag->products()->count() > 0){
-    session()->flash('success','Você não pode deletar a tag que tenha produto';
+    session()->flash('success','Você não pode deletar a tag que tenha produto');
     return redirect(route('tag.index'));
     }
 
