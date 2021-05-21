@@ -31,12 +31,12 @@
     @foreach($tags as $tag)
     <tr>
         <td>{{ $tag->id }}</td>
-        <td>{{ $tag->name }}</td>
+        <td>{{ $tag->name }} ({{ $tag->products()->count() }})</td>
         <td>
             <a href="#" class="btn btn-sm btn-success">Visualizar</a>
             <a href="{{ route('tag.edit',$tag->id)}}" class="btn btn-sm btn-warning">Editar</a>
         <form class="d-inline" method="POST" action="('{{route('tag.destroy', $tag->id )}}" onsubmit="return remover();"
-        @method('DELETE') 
+        @method ('DELETE') 
         @csrf
               
             <button type="submit"  class="btn btn-sm btn-danger">Apagar</a>
