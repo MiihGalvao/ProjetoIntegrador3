@@ -32,7 +32,7 @@ public function store(Request $request)
 
 public function show(Tag $tag)
     {
-    //
+    return view('tag.show');
     }
 
 public function edit(Tag $tag)
