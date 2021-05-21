@@ -50,9 +50,13 @@ public function update(Request $request, Tag $tag)
 
 public function destroy(Tag $tag)
     {
-    $tag->delete();
-    session()->flash('success','Tag foi apagada com sucesso');
+    if($tag->products()->count() > 0){
+    session()->flash('success','Você não pode deletar a tag que tenha produto';
     return redirect(route('tag.index'));
     }
 
+    $tag->delete();
+    session()->flash('success', 'Tag foi apagada com sucesso!');
+    return redirect(route('tag.index'));
+    }
 }
