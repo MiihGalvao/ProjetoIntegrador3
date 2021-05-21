@@ -15,6 +15,8 @@ class ProductsController extends Controller
     }
 
     public function show(Product $product){
+        session()->flash('success', 'Produto foi cadastrado com sucesso');
+        session()->flash('error', 'Produto foi cadastrado com sucesso');
         return view('product.show');
 
     }

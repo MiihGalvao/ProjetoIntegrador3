@@ -43,7 +43,7 @@
 
 </header>
 
-    <main>
+    <main class="container my-4">
 
     @if(session()->has('success'))
         <div class="alert alert-success" role="alert">
@@ -52,7 +52,7 @@
         @endif
 
         @if(session()->has('error'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-danger" role="alert">
         {{ session()->get('error')   }}
         </div>
         @endif
