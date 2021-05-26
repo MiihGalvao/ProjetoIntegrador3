@@ -11,7 +11,7 @@ class Product extends Model
     use HasFactory;
     use SoftDeletes;
     
-    protected $fillable = ['name','description','price','category_id','image'];
+    protected $fillable = ['name','description','price','desconto','category_id','image'];
 
     public function category(){
         return $this->belongsTo(Category::class);
@@ -19,4 +19,16 @@ class Product extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
+
+    public static function promocoes(){
+        return Product::all()->take(2);
+    }
+
+
+    //Implementar casos tenha (Desconto)
+    //public function calculaPreco(){
+      //  return $this->price * (1 - $this->desconto)
+    //}
+
+
 }
