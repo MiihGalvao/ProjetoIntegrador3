@@ -19,4 +19,10 @@ class Product extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
+
+    public function promocoes(){
+        return $this::all()->take(2);
+    }
+
+
 }
