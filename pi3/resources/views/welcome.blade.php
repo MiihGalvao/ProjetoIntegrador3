@@ -31,15 +31,15 @@
     </div>
 
   <div class="row">
-     @foreach()
+     @foreach(App\Models\Product::promocoes() as $product)
         <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="text-center" style="height: 250px;">
-                 <img src="Endereço da img" class="h-100">
+                 <img src=" {{ asset($product->image) }}" class="h-100">
              </div>
 
             <div class="text-center">
-                <span class="d-block fw-bold">Nome do produto</span>
-                <span class="d-block">R$50,00</span>
+                <span class="d-block fw-bold">{{ $product->name }}</span>
+                <span class="d-block">R$ {{ $product->price }}</span>
             <div class="mt-2">
                 <a href="#" class="btn btn-secondary">Visualizar</a>
                 <a href="#" class="btn btn-primary">Comprar</a>
