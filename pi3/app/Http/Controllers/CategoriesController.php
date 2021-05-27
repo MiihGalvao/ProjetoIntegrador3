@@ -14,6 +14,12 @@ class CategoriesController extends Controller
     public function create(){
         return view('category.create');
 }
+
+    public function show(Category $category){
+        return view('category.show')->with(['category' => $category, 'products' => $category->products()->paginate(3)];
+    }
+
+
 public function store(Request $request) {
     Category::create($request->all());
     session()->flash('success', 'Categoria foi cadastrada com sucesso');
