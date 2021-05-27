@@ -10,7 +10,7 @@
     </div>
 
   <div class="row">
-     @foreach($tag->products as $product)
+     @foreach($products as $product)
         <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="text-center" style="height: 250px;">
                  <img src=" {{ asset($product->image) }}" class="h-100">
@@ -28,6 +28,11 @@
     @endforeach
 
 </div> 
+<div class="row">
+        {{ $products->links() }}
+
+
+</div>
 
 </section>
 
