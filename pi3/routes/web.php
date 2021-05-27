@@ -45,8 +45,8 @@ Route::patch('/trash/product/{id}', [ProductsController::class, 'restore'])->nam
 //Route::patch('/product/restore/{Product}', [ProductsController::class, 'restore'])->name('product.restore');
 
 
-Route::resource('/category', CategoriesController::class), ['except' => ['show']]);;
-Route::resource('/tag', TagController::class, ['except' => ['show']]););
+Route::resource('/category', CategoriesController::class, ['except' => ['show']]);
+Route::resource('/tag', TagController::class, ['except' => ['show']]);
 });
 
 Route::resource('/product',ProductsController::class, ['only' => ['show']]);
