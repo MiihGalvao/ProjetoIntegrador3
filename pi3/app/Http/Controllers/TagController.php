@@ -32,7 +32,7 @@ public function store(Request $request)
 
 public function show(Tag $tag)
     {
-    return view('tag.show');
+    return view('tag.show')->with('tag', $tag);
     }
 
 public function edit(Tag $tag)
