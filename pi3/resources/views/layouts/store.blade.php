@@ -38,6 +38,14 @@
                 </ul>
             </li>
         </ul>
+        <div class="navbar-nav ms-auto">
+        @if(Auth()->user())
+                <span class="nav-link">{{Auth()->user()->name}}</span>
+                <a class="nav-link" href="{{ route('cart.show') }}">Carrinho ({{ \App\Models\Cart::count() }})</a>
+            @else
+                <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                <a class="nav-link" href="{{ route('login') }}">Logar</a>
+            @endif
      </div>
                 </div>
 </nav>
