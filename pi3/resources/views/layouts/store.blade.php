@@ -25,7 +25,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuCategoria" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categoria</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuCategoria">
                     @foreach(\App\Models\Category::all() as $category)
-                    <li><a class="dropdown-item" href="#">{{$category->name}}</a></li>
+                    <li><a class="dropdown-item" href="{{ route('category.show, $category->id')}}">{{$category->name}}</a></li>
                     @endforeach
                 </ul>
             </li>
@@ -33,7 +33,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuTag" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Tags</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuTag">
                 @foreach(\App\Models\Tag::all() as $tag)
-                    <li><a class="dropdown-item" href="#">{{$tag->name}}</a></li>
+                    <li><a class="dropdown-item" href="{{ route('tag.show, $tag->id')}}">{{$tag->name}}</a></li>
                     @endforeach
                 </ul>
             </li>
