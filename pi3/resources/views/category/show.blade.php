@@ -28,7 +28,7 @@
     @endforeach
 
 </div> 
-<div class="row">
+<div class="d-flex justify-content-center mt-4">
     {{ $products->links() }}
 </div>
 </section>
