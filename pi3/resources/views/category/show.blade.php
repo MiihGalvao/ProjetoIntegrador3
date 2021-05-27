@@ -10,7 +10,7 @@
     </div>
 
   <div class="row">
-     @foreach($category->products as $product)
+     @foreach($category->products->paginate(3) as $product)
         <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="text-center" style="height: 250px;">
                  <img src=" {{ asset($product->image) }}" class="h-100">
