@@ -14,4 +14,8 @@ class Cart extends Model
     public function product(){
         return products::where('id', '=', $this->products_id)->first();
     }
+
+    public static function count(){
+        return Cart::where('user_id','=', Auth()->user()->id)->count();
+    }
 }
