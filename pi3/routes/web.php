@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\CartsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,13 +43,16 @@ Route::group(['middleware' => 'isAdmin'], function (){
 Route::resource('/product', ProductsController::class, ['except' => ['show']]);
 Route::get('/trash/product', [ProductsController::class, 'trash'])->name('product.trash');
 Route::patch('/trash/product/{id}', [ProductsController::class, 'restore'])->name('product.restore');
-//Route::patch('/trash/product', [ProductsController::class, 'trash'])->name('product.trash');
-//Route::patch('/product/restore/{Product}', [ProductsController::class, 'restore'])->name('product.restore');
+
 
 
 Route::resource('/category', CategoriesController::class, ['except' => ['show']]);
 Route::resource('/tag', TagController::class, ['except' => ['show']]);
 });
+
+Route::group(['middleware' => 'auth'], function(){
+  Route::get('/cart/add/{product}', [CartsController::class, 'add'])->name('cart.add');
+})
 
 Route::resource('/product',ProductsController::class, ['only' => ['show']]);
 Route::resource('/category',CategoriesController::class, ['only' => ['show']]);
