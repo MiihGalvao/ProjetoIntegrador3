@@ -32,7 +32,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuTag" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Tags</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuTag">
                 @foreach(\App\Models\Tag::all() as $tag)
-                    <li><a class="dropdown-item" href="{{ route('tag.show, $tag->id')}}">{{$tag->name}}</a></li>
+                    <li><a class="dropdown-item" href="{{ route('tag.show', $tag->id)}}">{{$tag->name}}</a></li>
                     @endforeach
                 </ul>
             </li>
