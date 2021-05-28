@@ -38,6 +38,9 @@
                 </ul>
             </li>
         </ul>
+        
+
+
         <div class="navbar-nav ms-auto">
         @if(Auth()->user())
                 <span class="nav-link">{{Auth()->user()->name}}</span>
