@@ -18,7 +18,7 @@
             <h2>{{ $product->name }}<h2>
             <p class="my-3">{{$product->description }}</p>
             <span class="h4 d-block my-3"> R${{ $product->price }}</span>  
-            <button class="btn btn-primary my-2">Adicionar no carrinho</button>
+            <a href="{{ route('product.add', $product->id) }}" class="btn btn-primary my-2">Adicionar no carrinho</button>
             <div class="d-block my-1">
                 <span class="h4 d-block my-3">Tags:</span>
                     @foreach($product->tags as $tag)
