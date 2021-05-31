@@ -18,4 +18,16 @@ class Cart extends Model
     public static function count(){
         return Cart::where('user_id','=', Auth()->user()->id)->count();
     }
+
+    public static function totalValue(){
+        $cart = Cart::where('user_id','=', Auth()->user()->id)->get();
+        $total = 0;
+        foreach($cart as $item){
+            $total += $item->quantity;
+        }
+            return $total;
+
+
+        
+    }
 }
