@@ -38,7 +38,7 @@
         <span class = "form-label">Tags</span>
        <select class="form-select" name="tags[]" multiple>
        @foreach($tags as $tag)
-            <option value="{{$tag->id}}" @if($product->tags->contains($tag->id) selectd @endif)>{{$tag->name}}</option>
+            <option value="{{$tag->id}}" @if($product->tags->contains($tag->id) select @endif)>{{$tag->name}}</option>
         @endforeach
        </select>
     </div>
