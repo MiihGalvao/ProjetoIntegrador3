@@ -24,8 +24,9 @@
             <td><a href="{{ route('product.show', $item->product()->id }}">{{ $item->product()->name }}</a></td>
             <td><span> {{ $item->quantity }}</span></td>
             <td>
-                <a href="{{ route.('cart.add', $item->product()->id) }}" class="btn btn btn-success">+</a>
                 <a href="{{ route.('cart.remove', $item->product()->id) }}" class="btn btn btn-danger">-</a>
+                <a href="{{ route.('cart.add', $item->product()->id) }}" class="btn btn btn-success">+</a>
+                
              </td>
                 <td>
                 <span> {{ $item->product()->price * $item->quantity }} (R$ {{ $item->product()->price  }})</span>
@@ -42,7 +43,7 @@
 </div>
 <div class="d-flex flex-column flex-wrap align-items-end">
 <span class="h3 mx-5">Total da compra: R$ {{ $total }}</span>
-<a href="#" class="btn btn-lg btn-primary mx-5 my-2">Ir para pagamento</a>
+<a href="{{ route('cart.payment') }}" class="btn btn-lg btn-primary mx-5 my-2">Ir para pagamento</a>
 
 <div>
  
