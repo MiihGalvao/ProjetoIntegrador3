@@ -32,27 +32,33 @@
         </div>
     </div>
     <hr>
-    <form class="my-4">
-        <h2>Dados de pagamento</h2>
+    <form style ="margin-top: 25px; margin-bottom: 70px;">
+            <h2>Dados de pagamento</h2>
         @csrf
         <div class="row justify-content-center">
-            <div class="col-md-6 col-10 my-4 p-3">
+            <div class="col-md-5 col-10 mb-3">
                 <label for="cc-nome">Nome no cartão</label>
-                <div class="input-group mb-3">
-                    <span class="input-group-text"><i class="far fa-credit-card"></i></span>
-               
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user-tag"></i></span> 
                 <input type="text" id="cc-nome" name="cc-nome" class="form-control" required>
             </div>
             <small class="text-muted">Você deve prencher o nome igual no cartão</small>
             </div>
-            <div class="col-md-6 col-10 my-4 p-3">
-
-                Numero do Cartão
+            <div class="col-md-5 col-10 mb-3">
+                <label for="cc-nome">Numero do Cartão</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-credit-card"></i></span> 
+                <input type="text" id="cc-card" name="cc-nome" class="form-control" required>
             </div>
         </div>
+        </div>
         <div class="row justify-content-center">
-            <div class="col-md-6 col-10 my-4 p-3">
-                CVV
+            <div class="col-md-5 col-10 mb-3">
+            <label for="cc-nome">Código CVV (Atras do cartão)</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-unlock"></i></span> 
+                <input type="text" id="cc-cvv" name="cc-cvv" class="form-control" required>
+            </div>
 
             </div>
             <div class="col-md-6 col-10 my-4 p-3">
