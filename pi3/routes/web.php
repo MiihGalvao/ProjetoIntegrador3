@@ -55,7 +55,9 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/cart/remove/{product}', [CartsController::class, 'remove'])->name('cart.remove');
   Route::get('/cart/payment', [CartsController::class, 'payment'])->name('cart.payment');
   Route::get('/cart',  [CartsController::class, 'show'])->name('cart.show');
-})
+  Route::get('order/add', [OrderController::class, 'add'])->name('order.add');
+  Route::get('order', [OrderController::class, 'show'])->name('order.show');
+});
 
 Route::resource('/product',ProductsController::class, ['only' => ['show']]);
 Route::resource('/category',CategoriesController::class, ['only' => ['show']]);
