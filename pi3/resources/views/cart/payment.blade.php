@@ -61,11 +61,14 @@
             </div>
 
             </div>
-            <div class="col-md-6 col-10 my-4 p-3">
-
-                Data de expiração
+            <div class="col-md-6 col-10 mb-3">
+            <label for="cc-nome">Data de expiração</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span> 
+                <input type="text" id="cc-date" name="cc-date" class="form-control" required>
             </div>
         </div>
+    </div>
+        <button type="submit" class="btn btn-lg btn-success float-end">Efetuar Pagamento</button>
     </form>
-
 @endsection
