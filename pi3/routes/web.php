@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CartsController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
