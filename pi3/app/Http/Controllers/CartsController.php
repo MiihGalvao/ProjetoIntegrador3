@@ -50,7 +50,7 @@ class CartsController extends Controller
              $item->delete();
              session()->flash('success', 'Foi removido o produto do carrinho');
              return redirect()->back();
-             ]);
+             
     }
         public function show(){
             $cart = Cart::where('user_id', '=',Auth()->user()->id)->get();
