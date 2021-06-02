@@ -42,7 +42,7 @@
 </table>
 </div>
 <div class="d-flex flex-column flex-wrap align-items-end">
-<span class="h3 mx-5">Total da compra: R$ {{ $total }}</span>
+<span class="h3 mx-5">Total da compra: R$ {{ number_format($total, 2,',' , '.') }}</span>
 <a href="{{ route('cart.payment') }}" class="btn btn-lg btn-primary mx-5 my-2">Ir para pagamento</a>
 
 <div>

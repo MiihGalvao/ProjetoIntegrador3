@@ -32,7 +32,7 @@
         </div>
     </div>
     <hr>
-    <form style ="margin-top: 25px; margin-bottom: 70px;">
+    <form style ="margin-top: 25px; margin-bottom: 70px;"  method="POST" action="{{ route('order.add') }}">
             <h2>Dados de pagamento</h2>
         @csrf
         <div class="row justify-content-center">
@@ -45,10 +45,10 @@
             <small class="text-muted">Você deve prencher o nome igual no cartão</small>
             </div>
             <div class="col-md-5 col-10 mb-3">
-                <label for="cc-nome">Numero do Cartão</label>
+                <label for="cc_card">Numero do Cartão</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="fas fa-credit-card"></i></span> 
-                <input type="text" id="cc-card" name="cc-nome" class="form-control" required>
+                <input type="text" id="cc_card" name="cc_card" class="form-control" required>
             </div>
         </div>
         </div>
