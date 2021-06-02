@@ -51,7 +51,7 @@ class CartsController extends Controller
              session()->flash('success', 'Foi removido o produto do carrinho');
              return redirect()->back();
              ]);
-
+    }
         public function show(){
             $cart = Cart::where('user_id', '=',Auth()->user()->id)->get();
             return view('cart.show')->with('cart', $cart);
