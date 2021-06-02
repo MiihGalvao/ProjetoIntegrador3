@@ -91,7 +91,7 @@ class ProductsController extends Controller
         }
 
         public function search(Request $request){
-            $products = (Product::where('name', 'like', "%$request->search%");
+            $products = (Product::where('name', 'like', "%$request->search%")
             return view('product.search')->with(['search' => $request->search, 'products' => $products->paginate(3)]);
 
         }
