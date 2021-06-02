@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function(){
 Route::resource('/product',ProductsController::class, ['only' => ['show']]);
 Route::resource('/category',CategoriesController::class, ['only' => ['show']]);
 Route::resource('/tag', TagController::class, ['only' => ['show']]);
-
+Route::get('/search',[ProductsController::class, 'search'])->name('search');
 
 
 
