@@ -89,4 +89,11 @@ class ProductsController extends Controller
             session()->flash('success, Produto foi restaurado com sucesso! ');
             return redirect(route('product.trash'));
         }
+
+        public function search(Request $request){
+            $products = (Product::where('name', 'like', "%$request->search%");
+            return view('product.search')->with(['search' => $request->search, 'products' => $products->paginate(3)]);
+
         }
+
+    }
