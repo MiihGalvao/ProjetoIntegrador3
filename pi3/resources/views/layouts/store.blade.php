@@ -38,7 +38,11 @@
                 </ul>
             </li>
         </ul>
-        
+        <form class="d-flex w-50" action="{{ route ('search') }}">
+            @csrf
+                <input type="text" class="form-control" name="search" id="search">
+                <button class="ms-2 btn btn-secondary" style="min-width:95px"><i class="fas fa-search me-1"></i>Buscar</button>
+            <form>
 
 
         <div class="navbar-nav ms-auto">
