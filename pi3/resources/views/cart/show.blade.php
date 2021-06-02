@@ -19,17 +19,16 @@
             @endphp
 
     @foreach($cart as $item)
-        <tr>
-            <td><img src="{{ asset ($item->product()->image) }}"  style="width:40px"></td>
+        <tr class="fs-5">
+            <td><img src="{{ asset ($item->product()->image) }}"  style="width:100px"></td>
             <td><a href="{{ route ('product.show', $item->product()->id) }}">{{ $item->product()->name }}</a></td>
             <td><span> {{ $item->quantity }}</span></td>
             <td>
                 <a href="{{ route.('cart.remove', $item->product()->id) }}" class="btn btn btn-danger">-</a>
                 <a href="{{ route.('cart.add', $item->product()->id) }}" class="btn btn btn-success">+</a>
-                
              </td>
                 <td>
-                <span> {{ $item->product()->price * $item->quantity }} (R$ {{ $item->product()->price  }})</span>
+                <span> R$ {{ number_format($item->product()->price * $item->quantity , 2, ',' , '.'}} (R$ {{ $item->product()->price  }})</span>
                 @php
                     $total += $item->product()->price * $item->quantity;
                 @endphp
@@ -42,7 +41,7 @@
 </table>
 </div>
 <div class="d-flex flex-column flex-wrap align-items-end">
-<span class="h3 mx-5">Total da compra: R$ {{ number_format($total, 2,',' , '.') }}</span>
+<span class="h3 mx-5">Total da compra: R$ {{ number_format($total, 2, ',' , '.') }}</span>
 <a href="{{ route('cart.payment') }}" class="btn btn-lg btn-primary mx-5 my-2">Ir para pagamento</a>
 
 <div>
