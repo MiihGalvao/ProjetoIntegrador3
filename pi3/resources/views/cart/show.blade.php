@@ -21,7 +21,7 @@
     @foreach($cart as $item)
         <tr>
             <td><img src="{{ asset ($item->product()->image) }}"  style="width:40px"></td>
-            <td><a href="{{ route('product.show', $item->product()->id }}">{{ $item->product()->name }}</a></td>
+            <td><a href="{{ route ('product.show', $item->product()->id) }}">{{ $item->product()->name }}</a></td>
             <td><span> {{ $item->quantity }}</span></td>
             <td>
                 <a href="{{ route.('cart.remove', $item->product()->id) }}" class="btn btn btn-danger">-</a>
