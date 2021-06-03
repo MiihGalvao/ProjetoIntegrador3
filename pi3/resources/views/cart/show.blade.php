@@ -19,16 +19,16 @@
             @endphp
 
     @foreach($cart as $item)
-        <tr class="fs-5">
+        <tr>
             <td><img src="{{ asset ($item->product()->image) }}"  style="width:100px"></td>
             <td><a href="{{ route ('product.show', $item->product()->id) }}">{{ $item->product()->name }}</a></td>
             <td><span> {{ $item->quantity }}</span></td>
             <td>
-                <a href="{{ route.('cart.remove', $item->product()->id) }}" class="btn btn btn-danger">-</a>
-                <a href="{{ route.('cart.add', $item->product()->id) }}" class="btn btn btn-success">+</a>
+                <a href="{{ route.('cart.remove', $item->product()->id) }}" class="btn btn-lg btn-danger">-</a>
+                <a href="{{ route.('cart.add', $item->product()->id) }}" class="btn btn-lg btn-success">+</a>
              </td>
                 <td>
-                <span> R$ {{ number_format($item->product()->price * $item->quantity , 2, ',' , '.'}} (R$ {{ $item->product()->price  }})</span>
+                    <span> {{ $item->product()->price * $item->quantity }} (R$ {{ $item->product()->price  }})</span>
                 @php
                     $total += $item->product()->price * $item->quantity;
                 @endphp
