@@ -24,8 +24,8 @@
             <td><a href="{{ route ('product.show', $item->product()->id) }}">{{ $item->product()->name }}</a></td>
             <td><span> {{ $item->quantity }}</span></td>
             <td>
-                <a href="{{ route.('cart.remove', $item->product()->id) }}" class="btn btn-lg btn-danger">-</a>
-                <a href="{{ route.('cart.add', $item->product()->id) }}" class="btn btn-lg btn-success">+</a>
+                <a href="{{ route('cart.remove', $item->product()->id) }}" class="btn btn-lg btn-danger">-</a>
+                <a href="{{ route('cart.add', $item->product()->id) }}" class="btn btn-lg btn-success">+</a>
              </td>
                 <td>
                     <span> {{ $item->product()->price * $item->quantity }} (R$ {{ $item->product()->price  }})</span>
