@@ -12,7 +12,7 @@ class Cart extends Model
     protected $fillable = ['user_id','product_id','quantity'];
 
     public function product(){
-        return products::where('id', '=', $this->products_id)->first();
+        return product::where('id', '=', $this->products_id)->first();
     }
 
     public static function count(){
